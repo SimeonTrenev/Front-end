@@ -32,11 +32,11 @@ function RegistrationForm(props) {
     const redirectToLogin = () => {
         props.history.push('/login'); 
     }
-    const handleSubmitClick = (e) => {
+    const handleSubmitClick = async (e) => {
         e.preventDefault();
         if(state.password === state.confirmPassword && state.password.length >= 5 && state.email.length >= 5 && validateEmail(state.email)) {
             // sendDetailsToServer()
-            axios.post('https://lc-brokers.herokuapp.com/register', state)
+          await axios.post('https://lc-brokers.herokuapp.com/register', state)
             .then(response => console.log(response))
             .catch(err => console.log(err))
             redirectToLogin()
