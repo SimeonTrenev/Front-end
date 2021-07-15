@@ -36,7 +36,7 @@ function RegistrationForm(props) {
         e.preventDefault();
         if(state.password === state.confirmPassword && state.password.length >= 5 && state.email.length >= 5 && validateEmail(state.email)) {
             // sendDetailsToServer()
-            axios.get('https://lc-brokers.herokuapp.com/register', state)
+            axios.post('https://lc-brokers.herokuapp.com/register', state)
             .then(response => console.log(response))
             .catch(err => console.log(err))
             redirectToLogin()
