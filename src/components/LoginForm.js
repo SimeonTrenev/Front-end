@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { path } from './comman-consts'
 // import './LoginForm.css';
 // import { API_BASE_URL, ACCESS_TOKEN_NAME } from "../../constants/apiConstants";
 import { useHistory } from 'react-router-dom'
@@ -40,7 +41,7 @@ function LoginForm(props) {
     
     if (password.length >= 5 && email.length >= 5 && validateEmail(email)) {
       axios
-        .post("/login", { email, password })
+        .post(`${path}/login`, { email, password })
         .then((response) => {
           window.sessionStorage.setItem("token", response.data.token)
           window.sessionStorage.setItem("email", response.data.email);

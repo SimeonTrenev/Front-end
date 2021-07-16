@@ -1,5 +1,6 @@
 import { Component } from "react";
 import OfferForm from "./OfferForm";
+import { path } from './comman-consts'
 // import db from "./db/db";
 import axios from "axios";
 
@@ -38,7 +39,7 @@ class EditOffer extends Component {
 
   searchInDb = async function() {
     let db = []; 
-    await axios.get('/allOffers')
+    await axios.get(`${path}/allOffers`)
      .then(response => db.push(response.data))
      .catch(err => console.log(err))
     //  console.log(db)
@@ -58,7 +59,7 @@ class EditOffer extends Component {
 
   dltButton = async function (_id){
     const db = [];
-    await axios.get('/allOffers')
+    await axios.get(`${path}/allOffers`)
      .then(response => db.push(response.data))
      .catch(err => console.log(err))
 
@@ -66,8 +67,8 @@ class EditOffer extends Component {
     const neededOffer = await db[0].filter((x) => x._id === _id)[0];
     
     
-   await axios.post('/delete', neededOffer)
-          .then(response => this.props.history.push('/show-offers/1'))
+   await axios.post(`${path}/delete`, neededOffer)
+          .then(response => this.props.history.push("/show-offers/1"))
           .catch(err => console.log(err))
           // this.props.history.push('/show-offers/1')
 
@@ -77,7 +78,7 @@ class EditOffer extends Component {
 
   editButton = async function (_id) {
     const db = [];
-    await axios.get('/allOffers')
+    await axios.get(`${path}/allOffers`)
      .then(response => db.push(response.data))
      .catch(err => console.log(err))
      
@@ -89,7 +90,7 @@ class EditOffer extends Component {
     // delete neededOffer._id;
    
    await axios
-      .post("/edit-offer", this.state.currentOffer, {
+      .post(`${path}/edit-offer`, this.state.currentOffer, {
         headers: {
           "Content-Type": "application/json",
         },

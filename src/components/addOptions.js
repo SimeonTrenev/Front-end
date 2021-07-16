@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { path } from './comman-consts'
 import Input from './sharedComponents/Input'
 import axios from 'axios'
 
@@ -23,7 +24,7 @@ class AddOptions extends  Component {
             state: '',
             neighborhood: '',
         })
-        axios.post('/add-types', this.state)
+        axios.post(`${path}/add-types`, this.state)
         .then(ressponse => console.log(Response))
     };
 

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import TableOffers from "./tableComponents/TableOffers";
 // import Pagination from './tableComponents/Pagination'
 // import qs from "querystring";
+import { path } from './comman-consts'
 import axios from 'axios'
 import Pagination from "./tableComponents/Pagination";
 import TableOffers from "./tableComponents/TableOffers";
@@ -32,7 +33,7 @@ class ShowOffers extends Component {
 
   getAll = async function(e) {
    
-  await axios.get('/allOffers')
+  await axios.get(`${path}/allOffers`)
               .then(response => this.setState({offers: response.data}))
               .catch(err => console.log(err))
 
@@ -59,7 +60,7 @@ class ShowOffers extends Component {
 
     if(!this.state.searchByNeighborhood){
       // this.setState({offers: this.newDb})
-      axios.get('/allOffers')
+      axios.get(`${path}/allOffers`)
       .then(response => this.setState({offers: response.data}))
       .catch(err => console.log(err))
       return;

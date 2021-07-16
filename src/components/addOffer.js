@@ -2,6 +2,7 @@ import { Component } from "react";
 // import Select from './sharedComponents/Select';
 // import Input from './sharedComponents/Input'
 // import DateSelector from './sharedComponents/DateSelector'
+import { path } from './comman-consts'
 import OfferForm from "./OfferForm";
 import axios from 'axios'
 
@@ -20,7 +21,7 @@ class AddOffer extends Component {
   };
 
   btnSuccess = (offer) => {
-    axios.post('/add-offer', offer)
+    axios.post(`${path}/add-offer`, offer)
         .then(response => console.log(response.data))
         .catch(err => console.log(err))
     this.props.history.push('/show-offers/1')
