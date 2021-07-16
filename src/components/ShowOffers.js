@@ -3,12 +3,12 @@ import React, { Component } from "react";
 // import TableOffers from "./tableComponents/TableOffers";
 // import Pagination from './tableComponents/Pagination'
 // import qs from "querystring";
-import { path } from './comman-consts'
-import axios from 'axios'
+import { path } from "./comman-consts";
+import axios from "axios";
 import Pagination from "./tableComponents/Pagination";
 import TableOffers from "./tableComponents/TableOffers";
 import SearchButton from "./SearchButton";
-import Spinner from './sharedComponents/Spinner'
+import Spinner from "./sharedComponents/Spinner";
 // import db from "./db/db";
 
 class ShowOffers extends Component {
@@ -20,29 +20,20 @@ class ShowOffers extends Component {
       offers: [],
       searchByNeighborhood: "",
     };
-
-    
   }
 
-
-  componentDidMount(){
-
-  this.getAll()
-
+  componentDidMount() {
+    this.getAll();
   }
 
-  getAll = async function(e) {
-   
-  await axios.get(`${path}/allOffers`)
-              .then(response => this.setState({offers: response.data}))
-              .catch(err => console.log(err))
+  getAll = async function (e) {
+    await axios
+      .get(`${path}/allOffers`)
+      .then((response) => this.setState({ offers: response.data }))
+      .catch((err) => console.log(err));
 
-       this.setState({loading: false})
-  }
-
-  componentDidMount(){
-    this.getAll()
-  }
+    this.setState({ loading: false });
+  };
 
   onChangeValueSearch = (e) => {
     let currentSearch = e.target.value;
@@ -51,18 +42,19 @@ class ShowOffers extends Component {
 
   onSearch = (e) => {
     e.preventDefault();
-    
+
     const currentNeighborhood = this.state.offers.filter(
       (x) =>
         x.neighborhood.toLowerCase() ===
         this.state.searchByNeighborhood.toLowerCase()
     );
 
-    if(!this.state.searchByNeighborhood){
+    if (!this.state.searchByNeighborhood) {
       // this.setState({offers: this.newDb})
-      axios.get(`${path}/allOffers`)
-      .then(response => this.setState({offers: response.data}))
-      .catch(err => console.log(err))
+      axios
+        .get(`${path}/allOffers`)
+        .then((response) => this.setState({ offers: response.data }))
+        .catch((err) => console.log(err));
       return;
     }
 
@@ -74,26 +66,24 @@ class ShowOffers extends Component {
   };
 
   render() {
-    if(this.state.loading){
-      return(
-        <Spinner />
-      )
-    }else{
-    return (
-      <div>
-        <SearchButton
-          type="text"
-          label="Квартал"
-          placeholder="Квартал"
-          name="neighborhood"
-          val={this.state.searchByNeighborhood}
-          onChange={this.onChangeValueSearch}
-          onSearch={this.onSearch}
-        />
-        <TableOffers offers={this.state.offers} />
-        <Pagination />
-      </div>
-    );
+    if (this.state.loading) {
+      return <Spinner />;
+    } else {
+      return (
+        <div>
+          <SearchButton
+            type="text"
+            label="Квартал"
+            placeholder="Квартал"
+            name="neighborhood"
+            val={this.state.searchByNeighborhood}
+            onChange={this.onChangeValueSearch}
+            onSearch={this.onSearch}
+          />
+          <TableOffers offers={this.state.offers} />
+          <Pagination />
+        </div>
+      );
     }
   }
 }

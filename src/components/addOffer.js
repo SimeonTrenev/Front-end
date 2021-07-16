@@ -2,9 +2,9 @@ import { Component } from "react";
 // import Select from './sharedComponents/Select';
 // import Input from './sharedComponents/Input'
 // import DateSelector from './sharedComponents/DateSelector'
-import { path } from './comman-consts'
+import { path } from "./comman-consts";
 import OfferForm from "./OfferForm";
-import axios from 'axios'
+import axios from "axios";
 
 class AddOffer extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class AddOffer extends Component {
     this.state = {};
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // console.log('123')
   }
 
@@ -21,14 +21,20 @@ class AddOffer extends Component {
   };
 
   btnSuccess = (offer) => {
-    axios.post(`${path}/add-offer`, offer)
-        .then(response => console.log(response.data))
-        .catch(err => console.log(err))
-    this.props.history.push('/show-offers/1')
-  }
- 
+    axios
+      .post(`${path}/add-offer`, offer)
+      .then((response) => this.props.history.push("/show-offers/1"))
+      .catch((err) => console.log(err));
+  };
+
   render() {
-    return <OfferForm changeFn={this.onChange} offer={this.state} btn={this.btnSuccess}/>;
+    return (
+      <OfferForm
+        changeFn={this.onChange}
+        offer={this.state}
+        btn={this.btnSuccess}
+      />
+    );
   }
 }
 
