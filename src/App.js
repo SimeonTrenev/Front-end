@@ -9,7 +9,7 @@ import ErrorPage from "./components/ErrorPage";
 import AboutUs from "./components/AboutUs";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
-import "./App.css";
+import "./components/CSS/index.css";
 import { Route, Switch } from "react-router-dom";
 import EditOffer from "./components/EditOffer";
 
@@ -31,7 +31,8 @@ class App extends React.Component {
     
     return (
       <div
-        style={{ padding: "10px", backgroundColor: "#eaeae1", height: "100vh" }}
+        className="parent-div"
+        style={{ padding: "10px", height: "100vh" }}
       >
         <Header
           updateSessinStatus={this.updateSessionStatus}
