@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Greetings from './Greetings'
-import '../components/sharedComponents/Logout.css'
+import '../components/CSS/Logout.css';
 
 
 const Header = (props) => {
@@ -22,14 +22,14 @@ const Header = (props) => {
 
   return (
     <nav
-      style={{ backgroundColor: "#ffe6e6" }}
+      style={{ backgroundColor: "#f595e8" }}
       className="navbar navbar-expand-lg navbar-light bg-light"
     >
       <NavLink className="navbar-brand" to="/" exact>
         Home
       </NavLink>
       <NavLink className="navbar-brand" to="/aboutUs" exact>
-        За нас
+        About us
       </NavLink>
       {props.hasSession && (
         <React.Fragment>

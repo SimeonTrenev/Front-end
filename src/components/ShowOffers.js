@@ -42,11 +42,10 @@ class ShowOffers extends Component {
 
   onSearch = (e) => {
     e.preventDefault();
-
     const currentNeighborhood = this.state.offers.filter(
       (x) =>
-        x.neighborhood.toLowerCase() ===
-        this.state.searchByNeighborhood.toLowerCase()
+        typeof(x.neighborhood) == 'string' ?  x.neighborhood.toLowerCase() ===
+        this.state.searchByNeighborhood.toLowerCase() : 'Not valid data'
     );
 
     if (!this.state.searchByNeighborhood) {

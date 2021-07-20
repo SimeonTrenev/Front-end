@@ -1,5 +1,5 @@
 import React from 'react';
-import './Error.css'
+import '../CSS/Error.css';
 
 const InputError = ({children}) => {
 

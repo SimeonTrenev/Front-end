@@ -12,6 +12,7 @@ import LoginForm from "./components/LoginForm";
 import "./components/CSS/index.css";
 import { Route, Switch } from "react-router-dom";
 import EditOffer from "./components/EditOffer";
+import Footer from './components/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class App extends React.Component {
     return (
       <div
         className="parent-div"
-        style={{ padding: "10px", height: "100vh" }}
+        // style={{ padding: "10px", height: "100vh" }}
       >
         <Header
           updateSessinStatus={this.updateSessionStatus}
@@ -66,6 +67,7 @@ class App extends React.Component {
           />
           <Route component={ErrorPage}></Route>
         </Switch>
+        <Footer />
       </div>
     );
   }

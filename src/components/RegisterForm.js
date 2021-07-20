@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import InputError from "./sharedComponents/InputError";
 import { path } from "./comman-consts";
+import './CSS/index.css';
 
 function RegistrationForm(props) {
   const [state, setState] = useState({
@@ -126,9 +127,9 @@ function RegistrationForm(props) {
       </div>
       <InputError>{errorMessage}</InputError>
       <div className="mt-2">
-        <span>Already have an account? </span>
+        <span><b>Already have an account? </b></span>
         <span className="loginText" onClick={() => redirectToLogin()}>
-          Login here
+         <b>Login here</b>
         </span>
       </div>
     </div>
