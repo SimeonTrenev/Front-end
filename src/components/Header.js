@@ -24,6 +24,7 @@ const Header = (props) => {
     <nav
       style={{ backgroundColor: "#f595e8" }}
       className="navbar navbar-expand-lg navbar-light bg-light"
+      id="navigation-bar"
     >
       <NavLink className="navbar-brand" to="/" exact>
         Home

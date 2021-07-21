@@ -4,3 +4,11 @@
     color: blue;
     font-weight: bold;
 }
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.navbar-brand:focus{
+    color: white;
+}
