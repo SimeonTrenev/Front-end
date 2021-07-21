@@ -29,3 +29,34 @@ cursor: pointer;
 background-color: yellow;
 border-radius: 30%;
 }
+
+#contacts{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 90px;
+}
+
+#register-button {
+   margin-top: 150px; 
+}
+
+#emailHelp{
+    color: blue;
+    font-weight: bold;
+}
+
+#register-form {
+   margin-top: 140px;
+   margin-left: 500px;
+   text-align: center;
+}
+
+#login-form {
+    margin-top: 140px;
+    margin-left: 500px;
+    text-align: center;
+}

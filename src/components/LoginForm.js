@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { path } from './comman-consts'
+import { path } from './comman-consts';
 // import './LoginForm.css';
 // import { API_BASE_URL, ACCESS_TOKEN_NAME } from "../../constants/apiConstants";
-import { useHistory } from 'react-router-dom'
-import InputError from './sharedComponents/InputError'
+import { useHistory } from 'react-router-dom';
+import InputError from './sharedComponents/InputError';
+import './CSS/index.css';
 
 function LoginForm(props) {
   const [state, setState] = useState({
@@ -89,7 +90,7 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
+    <div className="card col-12 col-lg-4 login-card mt-2 hv-center" id="login-form">
       <form>
         <div className="form-group text-left">
           <label htmlFor="exampleInputEmail1">Email address</label>

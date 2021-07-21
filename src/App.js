@@ -13,6 +13,7 @@ import "./components/CSS/index.css";
 import { Route, Switch } from "react-router-dom";
 import EditOffer from "./components/EditOffer";
 import Footer from './components/Footer';
+import ContactUs from './components/ContactUs'
 
 class App extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class App extends React.Component {
             <HomePage />
           </Route>
           <Route path="/aboutUs" component={AboutUs}></Route>
+          <Route path="/contacts" component={ContactUs} ></Route>
           { token && (
             <React.Fragment>
           <Route path="/add-offer" component={AddOffer} />
@@ -68,6 +70,7 @@ class App extends React.Component {
           <Route component={ErrorPage}></Route>
         </Switch>
         <Footer />
+        
       </div>
     );
   }
